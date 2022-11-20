@@ -8,72 +8,78 @@
  */
 package practice;
 
+import java.util.Scanner;
+
 public class RomanToInteger{
 	    public static int romanToInt(String s) {
 	        int num = 0;
 	        boolean stop = false;
 	        int n = s.length();
-	        System.out.println(n);
 	        for(int i=0; i < n;i++){
 	            char c = s.charAt(i);
-	            System.out.println(c);
+	           // System.out.println(c);
 	            if(!stop){
 	                switch(c){
 	                    case 'I':
 	                        if(i < n-1 && s.charAt(i+1) == 'V' ){
 	                            num = num + 4;
-	                            System.out.println(num+"iv");
+	                           // System.out.println(num+"iv");
 	                            stop = true;
 	                        }
 	                        else if(i < n-1 && s.charAt(i+1) == 'X'){
 	                            num = num + 9;
-	                            System.out.println(num+"ix");
+	                           // System.out.println(num+"ix");
 	                            stop = true;
 	                        }
 	                        else{num = num + 1;
-                            System.out.println(num);}
+                           // System.out.println(num);
+	                        }
 	                        break;
 	                    case 'X':
 	                        if(i < n-1 && s.charAt(i+1) == 'L'){
 	                            num = num + 40;
-	                            System.out.println(num+"xl");
+	                            //System.out.println(num+"xl");
 	                            stop = true;
 	                        }
 	                        else if(i < n-1 && s.charAt(i+1) == 'C'){
 	                            num = num + 90;
-	                            System.out.println(num+"xc");
+	                           // System.out.println(num+"xc");
 	                            stop = true;
 	                        }
-	                        else{num = num + 10;System.out.println(num+"x");}
+	                        else{num = num + 10;
+	                        //System.out.println(num+"x");
+	                        }
 	                        break;
 	                    case 'C':
 	                        if(i < n-1 && s.charAt(i+1) == 'D'){
 	                            num = num + 400;
-	                            System.out.println(num+"cd");
+	                           // System.out.println(num+"cd");
 	                            stop = true;
 	                        }
 	                        else if(i < n-1 && s.charAt(i+1) == 'M'){
 	                            num = num + 900;
-	                            System.out.println(num+"cm");
+	                           // System.out.println(num+"cm");
 	                            stop = true;
 	                        }
-	                        else{num = num + 100;System.out.println(num+"c");}
+	                        else{num = num + 100;
+	                       // System.out.println(num+"c");
+	                        }
 	                        break;
 	                    case 'V':
 	                        num = num + 5;
-	                        System.out.println(num+"v");
+	                        //System.out.println(num+"v");
 	                        break;
 	                    case 'L':
 	                        num = num + 50;
-	                        System.out.println(num+"l");
+	                       // System.out.println(num+"l");
 	                        break;
 	                    case 'D':
 	                        num = num + 500;
-	                        System.out.println(num+"d");
+	                        //System.out.println(num+"d");
 	                        break;
 	                    case 'M':
 	                        num = num + 1000;
-	                        System.out.println(num+"m");
+	                       // System.out.println(num+"m");
 	                        break;
 	                }
 	            }else{
@@ -87,8 +93,11 @@ public class RomanToInteger{
 	    }
 	public static void main(String args[]) {
 		try {
-			int a = romanToInt("III");
-			System.out.print(a);
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter Any Roman Number :");
+			String romanNum = sc.nextLine();
+			int a = romanToInt(romanNum);
+			System.out.print("The Equivalent integer of "+romanNum+" : "+a);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
